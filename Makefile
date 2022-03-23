@@ -27,7 +27,7 @@ BB		= $(E) "\033[2;35m♡ --------------------------------------- ♡ \n"
 # ------------------------------- #
 
 SRC 	= 	ft_printf.c	\
-			ft_lib.c 	\
+		ft_lib.c 	\
 
 OBJS 	= $(SRC:.c=.o)
 
@@ -63,7 +63,7 @@ $(NAME) :	$(OBJS)
 			$(BB)
 			$(S) 0.7
 			$(PF) "\033r"
-#5- frame greend
+#5- frame green
 			$(PF) "\033c\n"
 			$(E) "\033[2;32m♡ -------->> Compiling Printf <<--------- ♡ \n"
 			$(E) "\033[1;;32m     ✔ Printf Compiled! (ɔ ◔ ‿ ◔)ɔ ♥\n"
