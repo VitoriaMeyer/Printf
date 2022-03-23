@@ -17,7 +17,7 @@ RM 	= @rm -f
 NAME 	= libftprintf.a
 
 # $(VERBOSE).SILENT: mesmo que @ #
-#----------animations shits----------#
+#----------animation things----------#
 E	= @echo
 S	= @sleep 
 PF	= @printf
