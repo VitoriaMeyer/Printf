@@ -6,13 +6,13 @@
 #    By: vmeyer-s <vmeyer-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/27 11:03:07 by vmeyer-s          #+#    #+#              #
-#    Updated: 2022/03/23 09:32:37 by vmeyer-s         ###   ########.fr        #
+#    Updated: 2022/03/23 09:35:45 by vmeyer-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CFLAGS	= -Wall -Werror -Wextra -g
 CC 		= @cc
-RM 		= @rm -f
+RM		= @rm -f
 
 NAME 	= libftprintf.a
 

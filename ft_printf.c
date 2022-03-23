@@ -6,7 +6,7 @@
 /*   By: vmeyer-s <vmeyer-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 23:48:18 by vmeyer-s          #+#    #+#             */
-/*   Updated: 2022/03/23 07:57:28 by vmeyer-s         ###   ########.fr       */
+/*   Updated: 2022/03/23 10:48:38 by vmeyer-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ int	handle_format(char c, va_list args)
 // 	if (c == 'u')
 // 		return (ft_funsnum);
 // 	if (c == 'x')
-// 		return (g_c += (ft_base(va_arg(args, unsigned int), "0123456789abcdef")));
+// 		return (g_c = (ft_base(va_arg(args, unsigned int), "0123456789abcdef")));
 // 	if (c == 'X')
-// 		return (g_c += (ft_base(va_arg(args, unsigned int), 
+// 		return (g_c = (ft_base(va_arg(args, unsigned int), 
 // 		"0123456789ABCDEF")));
 	if (c == 'd' || c =='i')
-		return (g_c += (ft_putnbr(va_arg(args, int))));
+		return (g_c = (ft_putnbr(va_arg(args, int))));
 	if (c == '%')
-		return (g_c += (ft_putchar('%')));
+		return (g_c = (ft_putchar('%')));
  	return (g_c);
 }
 
@@ -42,7 +42,6 @@ int	ft_printf(const char *str, ...)
 	va_list	args;
 	unsigned int	counter;
 	
-
 	counter = 0;
 	va_start(args, str);
 	while (*str)
@@ -50,7 +49,7 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			++str;
-			counter += handle_format(*str, args);
+			counter += handle_format(*str++, args);
 		}
 		counter += ft_putchar(*str);  
 		str++;

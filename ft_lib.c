@@ -6,7 +6,7 @@
 /*   By: vmeyer-s <vmeyer-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:57:06 by vmeyer-s          #+#    #+#             */
-/*   Updated: 2022/03/23 08:02:29 by vmeyer-s         ###   ########.fr       */
+/*   Updated: 2022/03/23 10:50:07 by vmeyer-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,17 @@ int	ft_putchar(char c)
 
 int	ft_putstr(char *s)
 {
-	unsigned int	counter;
-	
-	counter = 0;
 	if (!s)
 		return (0);
-	while (s[counter] != '\0')
-		counter += ft_putchar(s[counter]);
-	return (counter);
+	while (s[g_c] != '\0')
+		g_c += ft_putchar(s[g_c]);
+	return (g_c);
 }
 
 int	ft_putnbr(int n)
 {
 	unsigned int	nbr;
-
+	
 	g_c = 0;
 	if (n < 0)
 	{
