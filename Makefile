@@ -11,19 +11,19 @@
 # **************************************************************************** #
 
 CFLAGS	= -Wall -Werror -Wextra -g
-CC 		= @cc
-RM 		= @rm -f
+CC 	= @cc
+RM 	= @rm -f
 
 NAME 	= libftprintf.a
 
 # $(VERBOSE).SILENT: mesmo que @ #
 #animations shits
-E		= @echo
-S		= @sleep 
-PF		= @printf
+E	= @echo
+S	= @sleep 
+PF	= @printf
 
-CP		= $(E) "\033[2;35m♡ -------->> Compiling Printf <<--------- ♡ \n"
-BB		= $(E) "\033[2;35m♡ --------------------------------------- ♡ \n"
+CP	= $(E) "\033[2;35m♡ -------->> Compiling Printf <<--------- ♡ \n"
+BB	= $(E) "\033[2;35m♡ --------------------------------------- ♡ \n"
 # ------------------------------- #
 
 SRC 	= 	ft_printf.c	\
