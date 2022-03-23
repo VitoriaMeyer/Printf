@@ -6,7 +6,7 @@
 /*   By: vmeyer-s <vmeyer-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:57:06 by vmeyer-s          #+#    #+#             */
-/*   Updated: 2022/03/17 17:28:01 by vmeyer-s         ###   ########.fr       */
+/*   Updated: 2022/03/23 08:02:29 by vmeyer-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,22 @@
 #include <stdio.h>
 #include "ft_printf.h"
 
-unsigned int	g_c = 0 ;
 
 int	ft_putchar(char c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
 
 int	ft_putstr(char *s)
 {
+	unsigned int	counter;
+	
+	counter = 0;
 	if (!s)
 		return (0);
-	while (s[g_c] != '\0')
-		g_c += ft_putchar(s[g_c]);
-	return (g_c);
+	while (s[counter] != '\0')
+		counter += ft_putchar(s[counter]);
+	return (counter);
 }
 
 int	ft_putnbr(int n)
