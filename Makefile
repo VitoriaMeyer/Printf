@@ -17,14 +17,14 @@ RM 	= @rm -f
 NAME 	= libftprintf.a
 
 # $(VERBOSE).SILENT: mesmo que @ #
-#animations shits
+#----------animations shits----------#
 E	= @echo
 S	= @sleep 
 PF	= @printf
 
 CP	= $(E) "\033[2;35m♡ -------->> Compiling Printf <<--------- ♡ \n"
 BB	= $(E) "\033[2;35m♡ --------------------------------------- ♡ \n"
-# ------------------------------- #
+# ---------------------------------- #
 
 SRC 	= 	ft_printf.c	\
 		ft_lib.c 	\
