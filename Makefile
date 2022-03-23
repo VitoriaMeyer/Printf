@@ -32,8 +32,8 @@ SRC 	= 	ft_printf.c	\
 OBJS 	= $(SRC:.c=.o)
 
 $(NAME) :	$(OBJS)
-#* -- Compiling PRINTF -- *#
-#*1- frame *#
+# -- Compiling PRINTF --
+#1- frame
 		$(PF) "\033c\n"
 		$(CP)
 		@ar rcs $(NAME) $(OBJS)	
@@ -42,28 +42,28 @@ $(NAME) :	$(OBJS)
 		$(BB)
 		$(S) 0.5
 		$(PF) "\033r"
-#*2- frame *#	
+#2- frame	
 		$(PF) "\033c\n"
 		$(CP)
 		$(E) "\033[0;35m              ► Loading .\n"
 		$(BB)
 		$(S) 0.5
 		$(PF) "\033r"
-#*3- frame *#
+#3- frame
 		$(PF) "\033c\n"
 		$(CP)
 		$(E) "\033[0;35m              ► Loading ..\n"
 		$(BB)
 		$(S) 0.5
 		$(PF) "\033r"
-#*4- frame *#
+#4- frame
 		$(PF) "\033c\n"
 		$(CP)
 		$(E) "\033[0;35m              ► Loading ...\n"
 		$(BB)
 		$(S) 0.7
 		$(PF) "\033r"
-#*5- frame green*#
+#5- frame green
 		$(PF) "\033c\n"
 		$(E) "\033[2;32m♡ -------->> Compiling Printf <<--------- ♡ \n"
 		$(E) "\033[1;;32m     ✔ Printf Compiled! (ɔ ◔ ‿ ◔)ɔ ♥\n"
