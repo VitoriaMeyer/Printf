@@ -32,7 +32,7 @@ SRC 	= 	ft_printf.c	\
 OBJS 	= $(SRC:.c=.o)
 
 $(NAME) :	$(OBJS)
-# -- Compiling PRINTF --
+# -- Compiling PRINTF -- #
 #1- frame
 			$(PF) "\033c\n"
 			$(CP)
