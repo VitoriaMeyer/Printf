@@ -6,7 +6,7 @@
 /*   By: vmeyer-s <vmeyer-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 20:53:32 by vmeyer-s          #+#    #+#             */
-/*   Updated: 2022/03/17 11:45:58 by vmeyer-s         ###   ########.fr       */
+/*   Updated: 2022/03/28 23:33:22 by vmeyer-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@
 # include <unistd.h>
 
 // counter
-unsigned int	g_c;	
+unsigned int	g_c;
 
 int	ft_printf(const char *str, ...);
 int	ft_putchar(char c);
 int	ft_putstr(char *s);
 int	ft_putnbr(int n);
-int	ft_base(long int n, char *str);
+int	ft_putusg(unsigned int n);
+int	ft_hexa(unsigned long int n, char c);
+int	ft_base(unsigned long int n, char *str, unsigned long int size);
 int	handle_format(char c, va_list args);
 
 #endif 

@@ -6,7 +6,7 @@
 #    By: vmeyer-s <vmeyer-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/27 11:03:07 by vmeyer-s          #+#    #+#              #
-#    Updated: 2022/03/23 09:35:45 by vmeyer-s         ###   ########.fr        #
+#    Updated: 2022/03/28 16:08:15 by vmeyer-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,19 @@ RM		= @rm -f
 NAME 	= libftprintf.a
 
 # $(VERBOSE).SILENT: mesmo que @ #
+
 # ----------animation things---------- #
+
 E		= @echo
 S		= @sleep 
 PF		= @printf
 
 CP		= $(E) "\033[2;35m♡ -------->> Compiling Printf <<--------- ♡ \n"
 BB		= $(E) "\033[2;35m♡ --------------------------------------- ♡ \n"
+
+# option + shift + k = 
+# option + shift + v = ◊
+# option + shift + 3 = ‹ | 4 = › 
 # ------------------------------------ #
 
 SRC 	=	ft_printf.c	\
@@ -32,12 +38,10 @@ SRC 	=	ft_printf.c	\
 OBJS 	= $(SRC:.c=.o)
 
 $(NAME) :	$(OBJS)
-# -- Compiling PRINTF --
 #1- frame
 		$(PF) "\033c\n"
 		$(CP)
 		@ar rcs $(NAME) $(OBJS)	
-		@say -r 325 "Compiling PrintF"
 		$(E) "\033[0;35m              ► Loading \n"
 		$(BB)
 		$(S) 0.5
@@ -72,6 +76,7 @@ $(NAME) :	$(OBJS)
 
 			
 all: $(NAME)
+
 clean:
 		$(PF) "\033c\n"
 		$(E) "\033[1;91m      ✘  ᕙ (҂◡̀_◡́)ᕤ  Cleaning  ✘   \n"
@@ -97,4 +102,13 @@ party:
 		$(S) 1
 		$(PF) "\033c"
 		$(E) "\033[34m♪┗(・o･)┓♪\n"
+
+color:
+		$(PF) "\033[39m\\\033[39m - Branco\n"
+		$(PF) "\033[36m\\\033[36m - Ciano\n"
+		$(PF) "\033[32m\\\033[32m - Verde\n"
+		$(PF) "\033[33m\\\033[33m - Amarelo\n"
+		$(PF) "\033[31m\\\033[31m - Vermelho\n"
+		$(PF) "\033[35m\\\033[35m - Rosa\n"
+		$(PF) "\033[34m\\\033[34m - Azul\n"
 

@@ -6,54 +6,50 @@
 /*   By: vmeyer-s <vmeyer-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 23:48:18 by vmeyer-s          #+#    #+#             */
-/*   Updated: 2022/03/23 10:48:38 by vmeyer-s         ###   ########.fr       */
+/*   Updated: 2022/03/28 23:48:11 by vmeyer-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-unsigned int	g_c = 0;
-
 int	handle_format(char c, va_list args)
 {
 	if (c == 'c')
-		g_c = (ft_putchar(va_arg(args, int)));
+		g_c += ft_putchar(va_arg(args, int));
 	if (c == 's')
-		g_c = (ft_putstr(va_arg(args, char *)));
-// 	if (c == 'p')
-// 		return (ft_fptr);
-// 	if (c == 'u')
-// 		return (ft_funsnum);
-// 	if (c == 'x')
-// 		return (g_c = (ft_base(va_arg(args, unsigned int), "0123456789abcdef")));
-// 	if (c == 'X')
-// 		return (g_c = (ft_base(va_arg(args, unsigned int), 
-// 		"0123456789ABCDEF")));
+		ft_putstr(va_arg(args, char *));
+	if (c == 'p')
+ 		g_c = ft_hexa(va_arg(args, unsigned long int), c) + 2;
+ 	if (c == 'u')
+		ft_putusg(va_arg(args, unsigned int));
+ 	if (c == 'x')
+ 		ft_hexa(va_arg(args, unsigned long int), c);
+ 	if (c == 'X')
+ 		ft_hexa(va_arg(args, unsigned long int), c);
 	if (c == 'd' || c =='i')
-		return (g_c = (ft_putnbr(va_arg(args, int))));
+		ft_putnbr(va_arg(args, int));
 	if (c == '%')
-		return (g_c = (ft_putchar('%')));
+		g_c += ft_putchar('%');
  	return (g_c);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
-	unsigned int	counter;
 	
-	counter = 0;
+	g_c = 0;
 	va_start(args, str);
 	while (*str)
 	{
 		if (*str == '%')
 		{
 			++str;
-			counter += handle_format(*str++, args);
+			 handle_format(*str++, args);
 		}
-		counter += ft_putchar(*str);  
+		g_c += ft_putchar(*str);  
 		str++;
 	}
 	va_end(args);
-	return (counter);
+	return (g_c);
 }

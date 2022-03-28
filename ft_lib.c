@@ -6,7 +6,7 @@
 /*   By: vmeyer-s <vmeyer-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:57:06 by vmeyer-s          #+#    #+#             */
-/*   Updated: 2022/03/23 10:50:07 by vmeyer-s         ###   ########.fr       */
+/*   Updated: 2022/03/28 23:46:29 by vmeyer-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,13 @@ int	ft_putchar(char c)
 
 int	ft_putstr(char *s)
 {
+	int i;
+
+	i = 0;
 	if (!s)
 		return (0);
-	while (s[g_c] != '\0')
-		g_c += ft_putchar(s[g_c]);
+	while (s[i] != '\0')
+		g_c += ft_putchar(s[i++]);
 	return (g_c);
 }
 
@@ -33,10 +36,9 @@ int	ft_putnbr(int n)
 {
 	unsigned int	nbr;
 	
-	g_c = 0;
 	if (n < 0)
 	{
-		ft_putchar('-');
+		g_c += ft_putchar('-');
 		nbr = (unsigned int)(n * -1);
 	}
 	else
@@ -47,21 +49,31 @@ int	ft_putnbr(int n)
 	return (g_c);
 }
 
-// int	ft_base(long int n, char *str)
-// {
-// 	unsigned int i;
+int	ft_base(unsigned long int n, char *str, unsigned long int size)
+{
+	if (n >= size)
+ 		ft_base((n / size), str, size);
+	g_c += ft_putchar(str[n % size]);
+	return (g_c);
+}
 
-// 	i = 0;
-// 	while (str[i])
-// 		i++;
-// 	if (n / i != 0)
-// 	{
-// 		ft_base((n % i), str);
-// 		g_c += ;
+int	ft_putusg(unsigned int n)
+{
+	if (n >= 10)
+		ft_putnbr(n / 10);
+	g_c += ft_putchar((char)(n % 10 + 48));
+	return (g_c);
+}
 
-// 	}
-// }
-
-// int	ft_hexa(unsigned int n)
-// {	
-// }
+int	ft_hexa(unsigned long int n, char c)
+{
+	if (c == 'x' || c == 'p')
+	{
+		if (c != 'p')
+			return (ft_base(n, "0123456789abcdef", 16));
+		write(1, "0x", 2);
+		return (ft_base(n, "0123456789abcdef", 16));
+	}
+	else
+		return (ft_base(n, "0123456789ABCDEF", 16));
+}
