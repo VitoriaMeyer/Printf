@@ -6,7 +6,7 @@
 /*   By: vmeyer-s <vmeyer-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:57:06 by vmeyer-s          #+#    #+#             */
-/*   Updated: 2022/03/28 23:46:29 by vmeyer-s         ###   ########.fr       */
+/*   Updated: 2022/04/04 21:44:14 by vmeyer-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_putstr(char *s)
 
 	i = 0;
 	if (!s)
-		return (0);
+		s = "(null)";
 	while (s[i] != '\0')
 		g_c += ft_putchar(s[i++]);
 	return (g_c);
@@ -65,7 +65,7 @@ int	ft_putusg(unsigned int n)
 	return (g_c);
 }
 
-int	ft_hexa(unsigned long int n, char c)
+int	ft_hexa(unsigned int n, char c)
 {
 	if (c == 'x' || c == 'p')
 	{
@@ -76,4 +76,9 @@ int	ft_hexa(unsigned long int n, char c)
 	}
 	else
 		return (ft_base(n, "0123456789ABCDEF", 16));
+}
+
+int	ft_ptr(unsigned long int n)
+{
+	return (write(1, "0x", 2) + ft_base(n, "0123456789abcdef", 16));
 }
